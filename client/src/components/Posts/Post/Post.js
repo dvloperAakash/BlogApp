@@ -63,8 +63,8 @@ const Post = ({ post, setCurrentId }) => {
     navigate(`/posts/${post._id}`);
   };
   const editPost = () => {
-      setCurrentId(post._id);
-      navigate(`/post/add`);
+    setCurrentId(post._id);
+    navigate(`/post/add`);
   }
   return (
     <Card className={classes.card} raised eleveation={6}>
@@ -79,12 +79,12 @@ const Post = ({ post, setCurrentId }) => {
           {moment(post.createdAt).fromNow()}
         </Typography>
       </div>
+
       {user?.result?._id === post?.creator && (
         <div className={classes.overlay2}>
           <Button
             style={{ color: "white" }}
             size="small"
-            // onClick={() => setCurrentId(post._id)}
             onClick={editPost}
           >
             <MoreHorizIcon fontSize="medium" />

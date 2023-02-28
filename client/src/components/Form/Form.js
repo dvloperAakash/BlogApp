@@ -22,7 +22,6 @@ const Form = ({ currentId, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
   const dispatch = useDispatch();
   useEffect(() => {
-    // console.log("it runs.");
     if (post) {
       setPostData(post);
     }

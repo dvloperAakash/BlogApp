@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Container maxWidth="xl">
-        <Navbar />
+        <Navbar setCurrentId={setCurrentId}/>
         <Routes>
           <Route path="/" exact element={<Navigate replace to="/posts" />} />
           <Route
@@ -26,7 +26,7 @@ function App() {
           <Route
             path="/auth"
             exact
-            element={!user ?.result? <Auth /> : <Navigate replace to="/posts" />}
+            element={!user?.result ? <Auth /> : <Navigate replace to="/posts" />}
           />
           <Route
             path="/post/add"

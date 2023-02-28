@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { LOGOUT } from "../../constants/actionType";
 import { AppBar, Typography, Button, Toolbar, Avatar } from "@material-ui/core";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import decode from "jwt-decode";
 import useStyles from "./styles";
 
-export const Navbar = () => {
+export const Navbar = ({ setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const logout = () => {
-    dispatch({ type: "LOGOUT" });
+    dispatch({ type: LOGOUT });
     setUser(null);
     navigate("/");
   };
+  const handleClick = () => {
+    setCurrentId(null);
+  }
   useEffect(() => {
     const token = user?.token;
     if (token) {
@@ -34,6 +38,7 @@ export const Navbar = () => {
             className={classes.heading}
             variant="h2"
             align="center"
+            onClick={handleClick}
           >
             BlogsHub
           </Typography>
