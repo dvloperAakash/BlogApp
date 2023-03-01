@@ -64,7 +64,7 @@ const Post = ({ post, setCurrentId }) => {
   };
   const editPost = () => {
     setCurrentId(post._id);
-    navigate(`/post/add`);
+    navigate(`/post/edit`);
   }
   return (
     <Card className={classes.card} raised eleveation={6}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Container,
   Grow,
@@ -12,9 +12,8 @@ import {
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import ChipInput from "material-ui-chip-input";
 import Posts from "../Posts/Posts";
-import Form from "../Form/Form";
 import useStyles from "./styles";
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import { getPostsBySearch } from "../../actions/posts";
 import Pagination from "../Pagination";
 import { useDispatch } from "react-redux"; // use to dispatch an action.
 
@@ -23,7 +22,6 @@ function useQuery() {
 }
 
 const Home = ({ currentId, setCurrentId }) => {
-  // const [currentId, setCurrentId] = useState(null);
   const [tags, setTags] = useState([]);
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
@@ -32,14 +30,9 @@ const Home = ({ currentId, setCurrentId }) => {
   const page = query.get("page") || 1;
   const searchQuery = query.get("searchQuery");
 
-  // useEffect(() => {
-  //   dispatch(getPosts());
-  // }, [currentId, dispatch]);
-  // console.log(currentId);
   const handleAdd = (tag) => setTags([...tags, tag]);
   const handleDelete = (tagToDelete) =>
     setTags(tags.filter((tag) => tag !== tagToDelete));
-
   const searchPost = () => {
     if (search.trim() || tags) {
       //dispatch -> fetch search posts
@@ -117,7 +110,7 @@ const Home = ({ currentId, setCurrentId }) => {
                 Write Blog
               </Button>
             </Paper>
-            
+
             {!searchQuery && !tags.length && (
               <Paper elevation={6} className={classes.pagination}>
                 <Pagination page={page} />

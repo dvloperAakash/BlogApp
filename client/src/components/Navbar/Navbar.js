@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useDispatch } from "react-redux";
 import { LOGOUT } from "../../constants/actionType";
 import { AppBar, Typography, Button, Toolbar, Avatar } from "@material-ui/core";
@@ -52,7 +52,8 @@ export const Navbar = ({ setCurrentId }) => {
               alt={user.result.name}
               src={user.result.imageUrl}
             >
-              {user.result.name.charAt(0)}
+              {/* {user.result.name.charAt(0)} */}
+              {user.result.name.split(" ")[0][0] + user.result.name.split(" ")[1][0]}
             </Avatar>
             <Typography className={classes.userName} variant="h6">
               {user.result.name}

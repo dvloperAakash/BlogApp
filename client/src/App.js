@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Container maxWidth="xl">
-        <Navbar setCurrentId={setCurrentId}/>
+        <Navbar setCurrentId={setCurrentId} />
         <Routes>
           <Route path="/" exact element={<Navigate replace to="/posts" />} />
           <Route
@@ -30,6 +30,11 @@ function App() {
           />
           <Route
             path="/post/add"
+            exact
+            element={<Form currentId={currentId} setCurrentId={setCurrentId} />}
+          />
+          <Route
+            path="/post/edit"
             exact
             element={<Form currentId={currentId} setCurrentId={setCurrentId} />}
           />
