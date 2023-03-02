@@ -1,5 +1,5 @@
 import axios from "axios";
-const API = axios.create({ baseURL: "https://blogapp-1p9q.onrender.com/" });
+const API = axios.create({ baseURL: "https://blogapp-1p9q.onrender.com" });
 // const url = 'http://localhost:5000/posts';     //url pointing to the backend route API
 
 API.interceptors.request.use((req) => {
